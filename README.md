@@ -2,6 +2,70 @@
 
 An educational web application demonstrating cryptographic hash functions and license key generation algorithms. This project showcases modern web development techniques while exploring how software licensing systems work under the hood.
 
+## 🚀 Quick Start - License Generation
+
+### 🌐 Auto-Generate License Keys Online
+
+**UPDATE!!!** - Visit [https://monokai-pro-keygen.vercel.app/](https://monokai-pro-keygen.vercel.app/) to auto-generate the keys and use them on the go! 🎉
+
+### 📋 Manual License Generation Process
+
+To generate a Monokai Pro license manually, you'll need any email address as a starting point. Feel free to use a placeholder like `email@example.com` for testing purposes.
+
+#### For Sublime Text 3
+
+1. **Create MD5 Hash**: Convert your email into an MD5 hash
+
+    - Use any MD5 hash generator tool of your choice
+    - Input: `email@example.com`
+    - Output: `5658ffccee7f0ebfda2b226238b1eb6e`
+
+2. **Create License Format**:
+    - Extract the first 25 characters: `5658ffccee7f0ebfda2b22623`
+    - Add dashes every 5 characters: `5658f-fccee-7f0eb-fda2b-22623`
+
+#### For Visual Studio Code
+
+1. **Combine UUID and Email**: Merge the extension UUID with your email address
+
+    ```
+    Extension UUID: fd330f6f-3f41-421d-9fe5-de742d0c54c0
+    Your Email: pouet@pouet.com
+    Combined String: fd330f6f-3f41-421d-9fe5-de742d0c54c0pouet@pouet.com
+    ```
+
+2. **Hash the Combined String**: Create MD5 hash from the merged string
+
+    - Result example: `0f2df3b3627abf1e80de8950a3d45d9e`
+
+3. **Build License Key**:
+    - Use first 25 characters: `0f2df3b3627abf1e80de8950a`
+    - Add separators every 5 characters: `0f2df-3b362-7abf1-e80de-8950a`
+
+### 🔧 Applying the License
+
+#### Sublime Text 3
+
+1. Open Sublime Text 3 with Monokai Pro installed
+2. Go to: `Preferences > Package Settings > Theme - Monokai Pro > Settings - User`
+3. Add this configuration:
+    ```json
+    {
+    	"email": "your-email@example.com",
+    	"license_key": "your-generated-license-key"
+    }
+    ```
+4. Save the file and restart Sublime Text 3
+5. You should see a thank you pop-up message ✅
+
+#### Visual Studio Code
+
+1. Open VS Code with Monokai Pro installed
+2. Press `Ctrl+Shift+P` to open command palette
+3. Search for "Monokai Pro" and select "Monokai Pro - enter license"
+4. Follow the on-screen prompts to enter your email and license key
+5. You should see a thank you pop-up message ✅
+
 ## 🎓 Educational Objectives
 
 -   **Cryptographic Learning**: Understand MD5 hashing and its applications in software licensing
