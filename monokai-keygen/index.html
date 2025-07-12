@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- 
+		Monokai Pro License Generator
+		Developed by: Ahmod Abdullah
+		GitHub: https://github.com/ahmod-abdullah-nabil
+		Purpose: Educational demonstration of license generation
+	-->
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Monokai Pro License Generator</title>
+		<style>
+			/* 
+				Custom CSS Styling by Ahmod Abdullah
+				Modern dark theme with gradient animations
+				Responsive design with glassmorphism effects
+			*/
+			@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				/* Custom color scheme designed by Ahmod Abdullah */
+				--bg-primary: #0a0a0f;
+				--bg-secondary: #1a1a24;
+				--bg-card: #1e1e2e;
+				--accent-blue: #00d4ff;
+				--accent-purple: #8b5cf6;
+				--accent-pink: #f472b6;
+				--text-primary: #ffffff;
+				--text-secondary: #a1a1aa;
+				--border: rgba(255, 255, 255, 0.1);
+				--shadow: rgba(0, 0, 0, 0.5);
+			}
+
+			body {
+				font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+				background: var(--bg-primary);
+				color: var(--text-primary);
+				min-height: 100vh;
+				overflow-x: hidden;
+				position: relative;
+			}
+
+			/* Animated background */
+			/* Custom floating animation created by Ahmod Abdullah */
+			body::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: radial-gradient(circle at 25% 25%, rgba(0, 212, 255, 0.15) 0%, transparent 25%),
+					radial-gradient(circle at 75% 75%, rgba(244, 114, 182, 0.15) 0%, transparent 25%), radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+				animation: float 20s ease-in-out infinite;
+				pointer-events: none;
+				z-index: 0;
+			}
+
+			@keyframes float {
+				0%,
+				100% {
+					transform: translate(0, 0) rotate(0deg);
+				}
+				33% {
+					transform: translate(30px, -30px) rotate(120deg);
+				}
+				66% {
+					transform: translate(-20px, 20px) rotate(240deg);
+				}
+			}
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 2rem;
+				position: relative;
+				z-index: 1;
+			}
+
+			.hero-section {
+				text-align: center;
+				margin-bottom: 3rem;
+				animation: slideUp 0.8s ease-out;
+			}
+
+			.logo {
+				width: 120px;
+				height: 120px;
+				margin: 0 auto 2rem;
+				background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+				border-radius: 30px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 3rem;
+				font-weight: 700;
+				box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+				position: relative;
+				overflow: hidden;
+				padding: 20px;
+			}
+
+			.logo img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				filter: brightness(1.1) contrast(1.1);
+			}
+
+			.logo::before {
+				content: "";
+				position: absolute;
+				top: -50%;
+				left: -50%;
+				width: 200%;
+				height: 200%;
+				background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+				animation: shine 3s ease-in-out infinite;
+			}
+
+			@keyframes shine {
+				0% {
+					transform: translateX(-100%) translateY(-100%) rotate(45deg);
+				}
+				50% {
+					transform: translateX(100%) translateY(100%) rotate(45deg);
+				}
+				100% {
+					transform: translateX(-100%) translateY(-100%) rotate(45deg);
+				}
+			}
+
+			.title {
+				font-size: clamp(2rem, 5vw, 3.5rem);
+				font-weight: 700;
+				background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+				-webkit-background-clip: text;
+				background-clip: text;
+				-webkit-text-fill-color: transparent;
+				margin-bottom: 1rem;
+			}
+
+			.subtitle {
+				font-size: 1.25rem;
+				color: var(--text-secondary);
+				font-weight: 300;
+				max-width: 600px;
+				margin: 0 auto 2rem;
+			}
+
+			.disclaimer {
+				background: rgba(255, 193, 7, 0.1);
+				border: 1px solid rgba(255, 193, 7, 0.3);
+				border-radius: 12px;
+				padding: 1rem 1.5rem;
+				margin: 0 auto 2rem;
+				max-width: 600px;
+				text-align: center;
+				animation: slideUp 0.8s ease-out 0.1s both;
+			}
+
+			.disclaimer-icon {
+				font-size: 1.5rem;
+				margin-right: 0.5rem;
+				display: inline;
+			}
+
+			.disclaimer-title {
+				font-size: 0.875rem;
+				font-weight: 600;
+				color: #fbbf24;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+				margin-bottom: 0.75rem;
+				display: inline;
+			}
+
+			.disclaimer-text {
+				font-size: 0.875rem;
+				color: var(--text-secondary);
+				line-height: 1.5;
+			}
+
+			.disclaimer-link {
+				color: #fbbf24;
+				text-decoration: underline;
+				transition: color 0.3s ease;
+			}
+
+			.disclaimer-link:hover {
+				color: #f59e0b;
+			}
+
+			.main-card {
+				background: var(--bg-card);
+				border: 1px solid var(--border);
+				border-radius: 24px;
+				padding: 3rem;
+				width: 100%;
+				max-width: 500px;
+				-webkit-backdrop-filter: blur(20px);
+				backdrop-filter: blur(20px);
+				box-shadow: 0 25px 50px var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+				position: relative;
+				animation: slideUp 0.8s ease-out 0.2s both;
+			}
+
+			.main-card::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+			}
+
+			.form-group {
+				margin-bottom: 2rem;
+			}
+
+			.form-label {
+				display: block;
+				font-size: 0.875rem;
+				font-weight: 600;
+				color: var(--accent-blue);
+				margin-bottom: 0.75rem;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.form-input {
+				width: 100%;
+				padding: 1rem 1.25rem;
+				background: var(--bg-secondary);
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				color: var(--text-primary);
+				font-size: 1rem;
+				font-family: inherit;
+				transition: all 0.3s ease;
+			}
+
+			.form-input:focus {
+				outline: none;
+				border-color: var(--accent-blue);
+				box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+				transform: translateY(-2px);
+			}
+
+			.form-input::placeholder {
+				color: var(--text-secondary);
+			}
+
+			.button-group {
+				display: grid;
+				gap: 1rem;
+				margin-bottom: 2rem;
+			}
+
+			.btn {
+				padding: 1rem 2rem;
+				border: none;
+				border-radius: 12px;
+				font-size: 1rem;
+				font-weight: 600;
+				font-family: inherit;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				position: relative;
+				overflow: hidden;
+				text-transform: none;
+				letter-spacing: normal;
+			}
+
+			.btn-primary {
+				background: linear-gradient(135deg, var(--accent-blue), #0ea5e9);
+				color: white;
+			}
+
+			.btn-secondary {
+				background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
+				color: white;
+			}
+
+			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+			}
+
+			.btn:active {
+				transform: translateY(0);
+			}
+
+			.btn::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+				transition: left 0.5s;
+			}
+
+			.btn:hover::before {
+				left: 100%;
+			}
+
+			.result-card {
+				background: var(--bg-secondary);
+				border: 1px solid var(--border);
+				border-radius: 16px;
+				padding: 1.5rem;
+				margin-top: 2rem;
+				display: none;
+				animation: slideIn 0.5s ease-out;
+			}
+
+			.result-card.show {
+				display: block;
+			}
+
+			.result-title {
+				font-size: 1.125rem;
+				font-weight: 600;
+				color: var(--accent-blue);
+				margin-bottom: 1rem;
+			}
+
+			.result-item {
+				margin-bottom: 1rem;
+				font-size: 0.875rem;
+			}
+
+			.result-label {
+				color: var(--text-secondary);
+				margin-bottom: 0.25rem;
+			}
+
+			.result-value {
+				color: var(--text-primary);
+				font-weight: 500;
+			}
+
+			.license-display {
+				background: var(--bg-primary);
+				border: 1px dashed var(--accent-blue);
+				border-radius: 8px;
+				padding: 1rem;
+				font-family: "JetBrains Mono", monospace;
+				font-size: 1rem;
+				letter-spacing: 1px;
+				word-break: break-all;
+				position: relative;
+				margin-top: 0.5rem;
+			}
+
+			.copy-button {
+				position: absolute;
+				top: 0.5rem;
+				right: 0.5rem;
+				background: var(--accent-blue);
+				color: var(--bg-primary);
+				border: none;
+				padding: 0.5rem 0.75rem;
+				border-radius: 6px;
+				font-size: 0.75rem;
+				font-weight: 600;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.copy-button:hover {
+				background: #00b8e6;
+			}
+
+			.footer {
+				margin-top: 4rem;
+				text-align: center;
+				animation: slideUp 0.8s ease-out 0.4s both;
+			}
+
+			.creator-info {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.75rem;
+				background: var(--bg-card);
+				border: 1px solid var(--border);
+				border-radius: 50px;
+				padding: 0.75rem 1.5rem;
+				transition: all 0.3s ease;
+				text-decoration: none;
+				color: inherit;
+			}
+
+			.creator-info:hover {
+				border-color: var(--accent-blue);
+				transform: translateY(-2px);
+			}
+
+			.creator-avatar {
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+				background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 0.875rem;
+				overflow: hidden;
+			}
+
+			.creator-avatar img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
+			.creator-text {
+				font-size: 0.875rem;
+				color: var(--text-secondary);
+			}
+
+			.creator-name {
+				color: var(--text-primary);
+				font-weight: 600;
+			}
+
+			@keyframes slideUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@media (max-width: 640px) {
+				.container {
+					padding: 1rem;
+				}
+
+				.main-card {
+					padding: 2rem;
+				}
+
+				.logo {
+					width: 80px;
+					height: 80px;
+					font-size: 2rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<section class="hero-section">
+				<div class="disclaimer">
+					<div>
+						<span class="disclaimer-icon">⚠️</span>
+						<span class="disclaimer-title">Educational Purpose Only</span>
+					</div>
+					<div class="disclaimer-text">
+						This tool is created for educational and demonstration purposes only. Please support the developers by purchasing official licenses from
+						<a href="https://monokai.pro" target="_blank" rel="noopener" class="disclaimer-link">monokai.pro</a>
+					</div>
+				</div>
+			</section>
+
+			<main class="main-card">
+				<form class="license-form">
+					<div class="form-group">
+						<label for="email" class="form-label">Email Address</label>
+						<input type="email" id="email" class="form-input" placeholder="developer@example.com" required />
+					</div>
+
+					<div class="button-group">
+						<button type="button" class="btn btn-primary" onclick="generateSublimeLicense()">Generate Sublime Text License</button>
+						<button type="button" class="btn btn-secondary" onclick="generateVSCodeLicense()">Generate VS Code License</button>
+					</div>
+				</form>
+
+				<div id="results" class="result-card">
+					<!-- Results will be dynamically inserted here -->
+				</div>
+			</main>
+
+			<footer class="footer">
+				<a href="https://github.com/ahmod-abdullah-nabil" target="_blank" rel="noopener" class="creator-info">
+					<div class="creator-avatar">
+						<img src="https://github.com/ahmod-abdullah-nabil.png" alt="Ahmod Abdullah" />
+					</div>
+					<div>
+						<div class="creator-text">Created by</div>
+						<div class="creator-name">Ahmod Abdullah</div>
+					</div>
+				</a>
+			</footer>
+		</div>
+
+		<script src="../cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+		<script>
+			// License Generation Logic
+			// Developed by: Ahmod Abdullah
+			// GitHub: https://github.com/ahmod-abdullah-nabil
+
+			const UUID = "fd330f6f-3f41-421d-9fe5-de742d0c54c0";
+
+			function generateMD5(str) {
+				// MD5 hash generation using CryptoJS library
+				return CryptoJS.MD5(str).toString();
+			}
+
+			function formatLicense(hash) {
+				// Format hash into license key pattern (developed by Ahmod Abdullah)
+				const first25 = hash.substring(0, 25);
+				return first25.match(/.{5}/g).join("-");
+			}
+
+			function generateSublimeLicense() {
+				const email = document.getElementById("email").value;
+				if (!email) {
+					showNotification("Please enter an email address.", "error");
+					return;
+				}
+				const hash = generateMD5(email);
+				const license = formatLicense(hash);
+				displayResult(email, license, "Sublime Text");
+			}
+
+			function generateVSCodeLicense() {
+				const email = document.getElementById("email").value;
+				if (!email) {
+					showNotification("Please enter an email address.", "error");
+					return;
+				}
+				const hash = generateMD5(UUID + email);
+				const license = formatLicense(hash);
+				displayResult(email, license, "VS Code");
+			}
+
+			function displayResult(email, license, editor) {
+				const resultsDiv = document.getElementById("results");
+				resultsDiv.innerHTML = `
+					<div class="result-title">${editor} License Generated Successfully!</div>
+					<div class="result-item">
+						<div class="result-label">Email Address</div>
+						<div class="result-value">${email}</div>
+					</div>
+					<div class="result-item">
+						<div class="result-label">License Key</div>
+						<div class="license-display">
+							${license}
+							<button class="copy-button" onclick="copyToClipboard('${license}')">Copy</button>
+						</div>
+					</div>
+				`;
+				resultsDiv.classList.add("show");
+			}
+
+			function copyToClipboard(text) {
+				navigator.clipboard
+					.writeText(text)
+					.then(function () {
+						const copyBtn = event.target;
+						const originalText = copyBtn.textContent;
+						copyBtn.textContent = "Copied!";
+						copyBtn.style.background = "#10b981";
+
+						setTimeout(() => {
+							copyBtn.textContent = originalText;
+							copyBtn.style.background = "var(--accent-blue)";
+						}, 2000);
+
+						showNotification("License key copied to clipboard!", "success");
+					})
+					.catch(function (err) {
+						console.error("Could not copy text: ", err);
+						// Fallback for older browsers
+						const textArea = document.createElement("textarea");
+						textArea.value = text;
+						document.body.appendChild(textArea);
+						textArea.select();
+						document.execCommand("copy");
+						document.body.removeChild(textArea);
+						showNotification("License key copied to clipboard!", "success");
+					});
+			}
+
+			function showNotification(message, type = "info") {
+				// Simple notification system
+				const notification = document.createElement("div");
+				notification.textContent = message;
+				notification.style.cssText = `
+					position: fixed;
+					top: 20px;
+					right: 20px;
+					padding: 1rem 1.5rem;
+					border-radius: 8px;
+					color: white;
+					font-weight: 500;
+					z-index: 1000;
+					animation: slideIn 0.3s ease-out;
+					background: ${type === "error" ? "#ef4444" : type === "success" ? "#10b981" : "#3b82f6"};
+				`;
+
+				document.body.appendChild(notification);
+
+				setTimeout(() => {
+					notification.remove();
+				}, 3000);
+			}
+
+			// Enhanced form handling
+			// Interactive features developed by Ahmod Abdullah
+			document.addEventListener("DOMContentLoaded", function () {
+				const emailInput = document.getElementById("email");
+
+				emailInput.addEventListener("input", function () {
+					const resultsDiv = document.getElementById("results");
+					if (resultsDiv.classList.contains("show")) {
+						resultsDiv.classList.remove("show");
+					}
+				});
+
+				emailInput.addEventListener("keypress", function (e) {
+					if (e.key === "Enter") {
+						e.preventDefault();
+						generateSublimeLicense();
+					}
+				});
+
+				// Add smooth scrolling
+				document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+					anchor.addEventListener("click", function (e) {
+						e.preventDefault();
+						document.querySelector(this.getAttribute("href")).scrollIntoView({
+							behavior: "smooth",
+						});
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
