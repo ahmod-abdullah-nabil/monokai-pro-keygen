@@ -1,18 +1,10 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "monokai-keygen/**",
-      "use": "@vercel/static"
+      "source": "/(.*)",
+      "destination": "/monokai-keygen/$1"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/monokai-keygen/$1"
-    }
-  ],
-  "functions": {},
   "headers": [
     {
       "source": "/(.*)",
