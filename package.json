@@ -1,0 +1,22 @@
+{
+  "name": "monokai-pro-keygen",
+  "version": "1.0.0",
+  "description": "Monokai Pro License Generator - Educational Purpose Only",
+  "main": "monokai-keygen/index.html",
+  "scripts": {
+    "start": "echo 'Static site - open monokai-keygen/index.html'",
+    "dev": "echo 'Static site - open monokai-keygen/index.html'"
+  },
+  "keywords": [
+    "monokai",
+    "license",
+    "generator",
+    "educational"
+  ],
+  "author": "Ahmod Abdullah",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmod-abdullah-nabil/monokai-pro-keygen"
+  }
+}

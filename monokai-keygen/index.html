@@ -525,7 +525,14 @@
 			</footer>
 		</div>
 
-		<script src="../cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+		<script>
+			// Fallback loading mechanism
+			if (typeof CryptoJS === "undefined") {
+				console.warn("Primary CDN failed, trying fallback...");
+				document.write('<script src="https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.js"><\/script>');
+			}
+		</script>
 		<script>
 			// License Generation Logic
 			// Developed by: Ahmod Abdullah
@@ -535,7 +542,16 @@
 
 			function generateMD5(str) {
 				// MD5 hash generation using CryptoJS library
-				return CryptoJS.MD5(str).toString();
+				try {
+					if (typeof CryptoJS === "undefined") {
+						throw new Error("CryptoJS library not loaded");
+					}
+					return CryptoJS.MD5(str).toString();
+				} catch (error) {
+					console.error("Error generating MD5:", error);
+					showNotification("Error: CryptoJS library not available. Please refresh the page.", "error");
+					return null;
+				}
 			}
 
 			function formatLicense(hash) {
@@ -550,9 +566,17 @@
 					showNotification("Please enter an email address.", "error");
 					return;
 				}
-				const hash = generateMD5(email);
-				const license = formatLicense(hash);
-				displayResult(email, license, "Sublime Text");
+
+				try {
+					const hash = generateMD5(email);
+					if (!hash) return; // Error already handled in generateMD5
+
+					const license = formatLicense(hash);
+					displayResult(email, license, "Sublime Text");
+				} catch (error) {
+					console.error("Error generating Sublime license:", error);
+					showNotification("Error generating license. Please try again.", "error");
+				}
 			}
 
 			function generateVSCodeLicense() {
@@ -561,9 +585,17 @@
 					showNotification("Please enter an email address.", "error");
 					return;
 				}
-				const hash = generateMD5(UUID + email);
-				const license = formatLicense(hash);
-				displayResult(email, license, "VS Code");
+
+				try {
+					const hash = generateMD5(UUID + email);
+					if (!hash) return; // Error already handled in generateMD5
+
+					const license = formatLicense(hash);
+					displayResult(email, license, "VS Code");
+				} catch (error) {
+					console.error("Error generating VS Code license:", error);
+					showNotification("Error generating license. Please try again.", "error");
+				}
 			}
 
 			function displayResult(email, license, editor) {
@@ -640,8 +672,15 @@
 
 			// Enhanced form handling
 			// Interactive features developed by Ahmod Abdullah
-			document.addEventListener("DOMContentLoaded", function () {
+
+			function initializeApp() {
+				console.log("Initializing application...");
+
 				const emailInput = document.getElementById("email");
+				if (!emailInput) {
+					console.error("Email input not found");
+					return;
+				}
 
 				emailInput.addEventListener("input", function () {
 					const resultsDiv = document.getElementById("results");
@@ -661,11 +700,32 @@
 				document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 					anchor.addEventListener("click", function (e) {
 						e.preventDefault();
-						document.querySelector(this.getAttribute("href")).scrollIntoView({
-							behavior: "smooth",
-						});
+						const target = document.querySelector(this.getAttribute("href"));
+						if (target) {
+							target.scrollIntoView({
+								behavior: "smooth",
+							});
+						}
 					});
 				});
+
+				console.log("Application initialized successfully");
+			}
+
+			function checkLibrariesAndInit() {
+				if (typeof CryptoJS !== "undefined") {
+					console.log("CryptoJS loaded successfully");
+					initializeApp();
+				} else {
+					console.warn("CryptoJS not yet loaded, retrying...");
+					setTimeout(checkLibrariesAndInit, 100);
+				}
+			}
+
+			document.addEventListener("DOMContentLoaded", function () {
+				console.log("DOM Content Loaded");
+				// Give libraries time to load, then check
+				setTimeout(checkLibrariesAndInit, 50);
 			});
 		</script>
 	</body>
